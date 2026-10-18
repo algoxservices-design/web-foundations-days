@@ -1,0 +1,7 @@
+# Day 8 Reflection
+
+The most difficult concept in the course was understanding how multiple users can change the same data at almost the same time. I initially thought checking whether a seat was available would be enough, but two customers can see the same available seat before either completes checkout. I worked through this by connecting database transactions with row-level locks, conditional updates, unique constraints, and idempotency keys. These mechanisms let the database make the final decision and prevent one seat from being sold twice.
+
+Based on feedback and further review of my capstone, I would improve the capacity estimates and validate them with load testing. The supplied figures let me estimate normal traffic and the burst from 200,000 people attempting to buy tickets in ten minutes, but averages do not show the highest short-lived peaks. I would test concurrent seat holds, duplicate payment notifications, expired-hold races, and database failover. I would also make the queue policy and recovery process more explicit so that fairness and reliability can be tested, not just described.
+
+Next, I want to learn more about distributed systems, especially message queues, idempotent workers, caching strategies, and database replication. I would also practise writing automated concurrency tests and monitoring latency and error rates. These skills would help me move from a design document to a reliable implementation that can handle real users and high-demand events.
